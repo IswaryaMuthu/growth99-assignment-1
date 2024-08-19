@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <title>Assignment 1</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(38, 38, 38);
+      margin: 0;
+      font-family: 'Segoe UI';
+    }
+
+/* Navigation Menu styles */
+
+    .nav {
+      width: 100%;
+      background-color: rgb(38, 38, 38);
+      ;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav>.nav-header {
+      flex: 0.95;
+      padding-left: 1rem;
+    }
+
+    .nav>.nav-header>.nav-title {
+      margin-top: 5px;
+      font-size: 15px;
+      color: #a09b9f;
+      display: flex;
+    }
+
+    .nav>.nav-list {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav>.nav-list>li {
+      list-style-type: none;
+    }
+
+    .nav>.nav-list>li a {
+      text-decoration: none;
+      color: #e3e2e2;
+      cursor: pointer;
+    }
+
+    .nav>#nav-check {
+      display: none;
+    }
+
+  
+    .hero-image {
+      height: 100%;
+    }
+
+    .hero-image-container {
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('background.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Hero Section styles */
+
+    .hero-text {
+      height: 90%;
+      width: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-weight: 400;
+      font-size: 3em;
+      background: linear-gradient(0.25turn, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+      padding: 10px 10px 15px 10px;
+      letter-spacing: .3em;
+    }
+
+    .hero-p {
+      font-size: 1em;
+      letter-spacing: .3em;
+      padding: 10px;
+      max-width: 550px;
+      background: linear-gradient(0.25turn, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+
+    }
+
+    .hero-butt {
+      font-weight: 400;
+      margin-top: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 1em;
+      background: linear-gradient(0.25turn, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+      padding: 10px 20px;
+      letter-spacing: .3em;
+      transition: padding .1s;
+    }
+
+    .hero-butt:hover {
+      padding: 20px 30px;
+    }
+
+
+  /* three column styles */
+
+    .sections {
+      clear: both;
+      text-align: center;
+      padding: 10px !important;
+      margin: 10px !important;
+    }
+
+
+    .col {
+      color: #dedada;
+      display: block;
+      float: left;
+      margin: 1% 0 1% 1.6%;
+      background-color: #505155;
+      border-radius: 7px;
+    }
+
+    .col:first-child {
+      margin-left: 0;
+    }
+
+    .group:before,
+    .group:after {
+      content: "";
+      display: table;
+    }
+
+    .group:after {
+      clear: both;
+    }
+
+    .group {
+      zoom: 1;
+    }
+
+    .span_3_of_3 {
+      width: 100%;
+    }
+
+    .span_2_of_3 {
+      width: 66.13%;
+    }
+
+    .span_1_of_3 {
+      width: 32.26%;
+    }
+
+
+    .grid-icons {
+      font-size: 18px;
+      padding: 9px;
+      background-color: #262628;
+      border-radius: 50%;
+      margin-right: 5px;
+      color: #dedada;
+    }
+
+
+    .container {
+      max-width: 1170px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      padding: 0px;
+      list-style: none;
+    }
+
+    .section-content {
+      padding: 5px;
+      color: #e2e1e2;
+    }
+
+      /* Footer Section styles */
+
+    .footer {
+      background-color: #24262b;
+      padding: 70px 0;
+    }
+
+    .footer-col {
+      width: 25%;
+      padding: 0 15px;
+    }
+
+    .footer-col h4 {
+      font-size: 18px;
+      color: #ffffff;
+      text-transform: capitalize;
+      margin-bottom: 35px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .footer-col h4::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: #e91e63;
+      height: 2px;
+      box-sizing: border-box;
+      width: 50px;
+    }
+
+    .footer-col ul li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 16px;
+      text-transform: capitalize;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 300;
+      color: #bbbbbb;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: #ffffff;
+      padding-left: 8px;
+    }
+
+    .footer-col .social-links a {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin: 0 10px 10px 0;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      color: #ffffff;
+      transition: all 0.5s ease;
+    }
+
+    .footer-col .social-links a:hover {
+      color: #24262b;
+      background-color: #ffffff;
+    }
+
+
+
+    /*responsive*/
+    @media(max-width: 767px) {
+      .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+      }
+    }
+
+    @media(max-width: 574px) {
+      .footer-col {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        padding: 1rem;
+      }
+
+      .col {
+        margin: 1% 0 1% 0%;
+      }
+
+      .span_3_of_3,
+      .span_2_of_3,
+      .span_1_of_3 {
+        width: 100%;
+      }
+
+      .nav>.nav-header>.nav-title img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .nav>.nav-header>.nav-title {
+        margin-top: 7px;
+        font-size: 12px;
+      }
+
+      .nav>.nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-top: 0.2rem;
+      }
+
+      .nav>.nav-btn>label {
+        display: inline-block;
+        width: 35px;
+        height: 18px;
+        padding: 29px;
+      }
+
+      .nav>.nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #e3e2e2;
+        ;
+      }
+
+      .nav>.nav-list {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        background-color: #262626;
+        height: 0;
+        transition: all 0.3s ease-in;
+        top: 60px;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .nav>.nav-list>li {
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+
+      .nav>#nav-check:checked~.nav-list {
+        height: calc(100vh - 50px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2em;
+      }
+
+      .hero-p {
+        font-size: .8em;
+      }
+
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 1.5em;
+      }
+
+      .hero-p {
+        padding: 10px 20px 10px 20px;
+        font-size: .7em;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <!--------------------NAVIGATION MENU START------------------------>
+  <nav class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <img src="images.png" width="60px" height="60px">
+        <p style="margin-top:15px; font-family:Copperplate, Papyrus, fantasy;font-weight: bold;">Client Company</p>
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+  <!--------------------NAVIGATION MENU END------------------------>
+
+
+    <!--------------------HERO SECTION START------------------------>
+
+  <section class="hero-image">
+    <div class="hero-image-container">
+      <div class="hero-text">
+        <h1 class="hero-title">Client Company</h1>
+        <p class="hero-p">You can put a welcome message or description here! The button acts as a call to action
+          for potential visitors!</p>
+        <a href="" class="hero-butt">Book Now !</a>
+      </div>
+    </div>
+  </section>
+
+    <!--------------------HERO SECTION END------------------------>
+
+      <!--------------------THREE COLUMN SECTION START------------------------>
+  <div class="sections group">
+    <div class="col span_1_of_3">
+      <h5><i class="fa fa-users grid-icons" aria-hidden="true"></i>Appointments</h5>
+      <p class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+    <div class="col span_1_of_3">
+      <h5><i class="fa fa-line-chart grid-icons" aria-hidden="true"></i> Leads</h5>
+      <p class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+    <div class="col span_1_of_3">
+      <h5><i class="fa fa-briefcase grid-icons" aria-hidden="true"></i> Business</h5>
+      <p class="section-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+  </div>
+  <!--------------------THREE COLUMN SECTION END------------------------>
+
+
+  <!--------------------FOOTER SECTION START------------------------>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">our services</a></li>
+            <li><a href="#">privacy policy</a></li>
+            <li><a href="#">affiliate program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">shipping</a></li>
+            <li><a href="#">returns</a></li>
+            <li><a href="#">order status</a></li>
+            <li><a href="#">payment options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Whatsapp</a></li>
+            <li><a href="#">Youtube</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <!--------------------FOOTER SECTION END------------------------>
+</body>
+
+</html>
